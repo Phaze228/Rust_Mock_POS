@@ -1,5 +1,5 @@
 // @generated automatically by Diesel CLI.
-
+// Allows postgres to see my Role type.
 pub mod sql_types {
     #[derive(diesel::sql_types::SqlType)]
     #[diesel(postgres_type(name = "role"))]

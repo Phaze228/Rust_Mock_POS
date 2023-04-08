@@ -1,6 +1,6 @@
 use std::env;
 
-use diesel::{PgConnection, Connection, debug_query, query_dsl::select_dsl::SelectDsl};
+use diesel::{PgConnection, Connection, debug_query};
 use models::{Employee, NewEmployee};
 
 pub mod models;

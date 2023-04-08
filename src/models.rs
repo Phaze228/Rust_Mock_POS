@@ -1,8 +1,6 @@
 use diesel::prelude::*;
 use crate::schema::employees;
-use std::{sync::atomic::{self, AtomicI32}};
 
-const EMPLOYEE_ID: AtomicI32 = AtomicI32::new(1);
 
 
 
@@ -71,12 +69,6 @@ impl std::fmt::Display for Employee {
 }
 
 impl Employee {
-    pub fn new(first_name: String, last_name: String, email: String, position: Role, employed: bool ) -> Employee {
-        let id = Option::Some(EMPLOYEE_ID.fetch_add(1, atomic::Ordering::SeqCst));
-        let pay = position.starting_pay();
-        Employee {id, first_name, last_name, email, position, pay, employed}
-    }
-
     pub fn make_default(&mut self) -> &mut Employee {
         self.first_name = String::new();
         self.last_name = String::new();
